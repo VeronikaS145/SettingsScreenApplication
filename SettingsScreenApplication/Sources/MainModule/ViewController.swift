@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     // MARK: - Setups
     private func setupView() {
         title = "Настройки"
-        view.backgroundColor  = UIColor(red: 242, green: 242, blue: 247, alpha: 1)
+        view.backgroundColor  = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         navigationController?.navigationBar.prefersLargeTitles = true
         model = Cell.cells
     }
