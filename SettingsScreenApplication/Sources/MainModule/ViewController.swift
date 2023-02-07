@@ -51,6 +51,8 @@ class ViewController: UIViewController {
         view.backgroundColor  = #colorLiteral(red: 0.9499780536, green: 0.9505755305, blue: 0.9688754678, alpha: 1)
         navigationController?.navigationBar.prefersLargeTitles = true
         model = Cell.cells
+        hideKeyboard()
+        setIconTextField()
     }
     
     private func setupHierarchy() {
@@ -72,6 +74,14 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - Private functions
+    
+    private func setIconTextField() {
+        if let textFieldIcon = UIImage(systemName: "magnifyingglass") {
+            textField.setLeftIcon(textFieldIcon)
+        }
+    }
+    
     // MARK: - Actions
     
     // Hide keyboard using a tap gesture
@@ -81,14 +91,6 @@ class ViewController: UIViewController {
         tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
         self.view.endEditing(true)
-    }
-    
-    // MARK: - Private functions
-    
-    private func setIconTextField() {
-        if let textFieldIcon = UIImage(systemName: "magnifyingglass") {
-                    textField.setLeftIcon(textFieldIcon)
-                }
     }
 }
 
