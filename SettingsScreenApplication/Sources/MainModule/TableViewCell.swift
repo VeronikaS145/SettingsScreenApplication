@@ -57,6 +57,12 @@ class TableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Override methods
+    
+    override func prepareForReuse() {
+        accessoryView = nil
+    }
+    
     // MARK: - Setups
     
     private func setupHierarchy() {
@@ -118,7 +124,7 @@ class TableViewCell: UITableViewCell {
         }
     }
     
-    // MARK: - Pirivate functions
+    // MARK: - Pirivate methods
     
     private func changeColorBackgroundIcon() {
         switch cells?.icon {

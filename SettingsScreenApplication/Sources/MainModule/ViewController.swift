@@ -81,11 +81,12 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell
         cell?.cells = model?[indexPath.section][indexPath.row]
         
-        if cell?.cells?.title == "Авиарежим" {
-            let toggle = UISwitch(frame: .zero)
-            toggle.setOn(false, animated: true)
-            cell?.accessoryView = toggle
-        } else {
+        switch cell?.cells?.icon {
+        case "airplane":
+            let switchView = UISwitch(frame: .zero)
+            switchView.setOn(false, animated: true)
+            cell?.accessoryView = switchView
+        default:
             cell?.accessoryType = .disclosureIndicator
         }
         
