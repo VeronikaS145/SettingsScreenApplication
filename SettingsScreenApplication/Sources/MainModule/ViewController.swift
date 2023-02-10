@@ -97,21 +97,9 @@ extension ViewController: UITableViewDataSource {
             
             return cell ?? UITableViewCell()
         }
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: DefaultTableViewCell.identifier, for: indexPath) as? DefaultTableViewCell
-        //        cell?.cells = model?[indexPath.section][indexPath.row]
-        //
-        //        switch cell?.cells?.icon {
-        //        case "airplane":
-        //            let switchView = UISwitch(frame: .zero)
-        //            switchView.setOn(false, animated: true)
-        //            cell?.accessoryView = switchView
-        //        default:
-        //            cell?.accessoryType = .disclosureIndicator
-        //        }
-        
-        //        return cell ?? UITableViewCell()
     }
 }
+
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
