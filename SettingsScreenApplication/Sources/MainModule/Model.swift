@@ -11,14 +11,13 @@ struct Cell: Hashable {
     var title: String
     var subtitle: String?
     var icon: String
-    var toggle: Bool?
 }
 
 extension Cell {
     static var cells: [[Cell]] = [
         [Cell(title: "Veronika Semenkova", subtitle: "AppleID, iCloud+, контент и покупки", icon: "user")],
         
-        [Cell(title: "Авиарежим", icon: "airplane", toggle: false),
+        [Cell(title: "Авиарежим", icon: "airplane"),
          Cell(title: "Wi-Fi", subtitle: "Выкл.", icon: "wifi"),
          Cell(title: "Bluetooth", subtitle: "Вкл.", icon: "bolt.horizontal"),
          Cell(title: "Сотовая связь", icon: "antenna.radiowaves.left.and.right"),
