@@ -8,13 +8,13 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
     // MARK: - UI Elements
     
     var cells: Cell? {
         didSet {
-                detailImage.image = UIImage(systemName: cells?.icon ?? "")
-                detailTitle.text = cells?.title ?? ""
+            detailImage.image = UIImage(systemName: cells?.icon ?? "")
+            detailTitle.text = cells?.title ?? ""
         }
     }
     
@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
     }()
     
     private lazy var detailTitle: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,6 @@ class DetailViewController: UIViewController {
     }()
     
     // MARK: - Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -44,7 +43,6 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: - Setups
-
     private func setupView() {
         view.backgroundColor  = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
@@ -66,6 +64,4 @@ class DetailViewController: UIViewController {
             make.centerX.equalTo(view)
         }
     }
-
-    
 }
