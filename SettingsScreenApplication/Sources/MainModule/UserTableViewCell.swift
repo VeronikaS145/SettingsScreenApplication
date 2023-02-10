@@ -13,7 +13,6 @@ class UserTableViewCell: UITableViewCell {
     
     var cells: Cell? {
         didSet {
-            setupLayout()
             icon.image = UIImage(named: cells?.icon ?? "")
             titleLabel.text = cells?.title ?? ""
             subtitleLabel.text = cells?.subtitle ?? ""
@@ -54,6 +53,7 @@ class UserTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupHierarchy()
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
