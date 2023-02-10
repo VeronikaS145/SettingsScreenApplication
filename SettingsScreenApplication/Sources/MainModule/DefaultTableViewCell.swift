@@ -14,7 +14,6 @@ class DefaultTableViewCell: UITableViewCell {
     
     var cells: Cell? {
         didSet {
-            setupLayout()
             changeColorBackgroundIcon()
             icon.image = UIImage(systemName: cells?.icon ?? "")
             titleLabel.text = cells?.title ?? ""
@@ -65,6 +64,7 @@ class DefaultTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupHierarchy()
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
