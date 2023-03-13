@@ -17,7 +17,6 @@
 		4B712933298A324900CEC750 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4B712932298A324900CEC750 /* SnapKit */; };
 		4B8D66E929956212002CF758 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D66E829956212002CF758 /* UserTableViewCell.swift */; };
 		4BF3C63E298CB7AD00697E7D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF3C63D298CB7AD00697E7D /* DetailViewController.swift */; };
-		4BF3C640298CC2FD00697E7D /* UITextField + Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF3C63F298CC2FD00697E7D /* UITextField + Ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +31,6 @@
 		4B71292D2989F22800CEC750 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4B8D66E829956212002CF758 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		4BF3C63D298CB7AD00697E7D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		4BF3C63F298CC2FD00697E7D /* UITextField + Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +52,6 @@
 				4B71290C2989DD9200CEC750 /* ViewController.swift */,
 				4BF3C63D298CB7AD00697E7D /* DetailViewController.swift */,
 				4B38EBF4298B4B270023BAB6 /* DefaultTableViewCell.swift */,
-				4BF3C63F298CC2FD00697E7D /* UITextField + Ex.swift */,
 				4B8D66E829956212002CF758 /* UserTableViewCell.swift */,
 			);
 			path = MainModule;
@@ -196,7 +193,6 @@
 				4B8D66E929956212002CF758 /* UserTableViewCell.swift in Sources */,
 				4B71290B2989DD9200CEC750 /* SceneDelegate.swift in Sources */,
 				4B71292E2989F22800CEC750 /* Model.swift in Sources */,
-				4BF3C640298CC2FD00697E7D /* UITextField + Ex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,8 +336,7 @@
 				INFOPLIST_FILE = SettingsScreenApplication/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,8 +362,7 @@
 				INFOPLIST_FILE = SettingsScreenApplication/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
