@@ -12,13 +12,12 @@ class DefaultTableViewCell: UITableViewCell {
     
     static let identifier = "DefaultTableViewCell"
     
-    var cells: Cell? {
-        didSet {
-            changeColorBackgroundIcon()
-            icon.image = UIImage(systemName: cells?.icon ?? "")
-            titleLabel.text = cells?.title ?? ""
-            subtitleLabel.text = cells?.subtitle ?? ""
-        }
+    // MARK: - Configuration
+    
+    func configureView(with model: Cell) {
+        icon.image = UIImage(named: model.icon)
+        titleLabel.text = model.title
+        subtitleLabel.text = model.subtitle
     }
     
     // MARK: - UI Elements
@@ -61,21 +60,29 @@ class DefaultTableViewCell: UITableViewCell {
     
     // MARK: - Init
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupHierarchy()
-        setupLayout()
+    init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        backgroundColor = .white
+        setupHierarchy()
+        setupLayout()
+        
+        changeColorBackgroundIcon()
     }
     
     // MARK: - Override methods
     
-    override func prepareForReuse() {
-        accessoryView = nil
-    }
+    //    override func prepareForReuse() {
+    //        accessoryView = nil
+    //    }
     
     // MARK: - Setups
     
@@ -109,48 +116,48 @@ class DefaultTableViewCell: UITableViewCell {
             make.right.equalTo(self).offset(-40)
         }
     }
-    
-    // MARK: - Pirivate methods
-    
-    private func changeColorBackgroundIcon() {
-        switch cells?.icon {
-        case "airplane":
-            view.backgroundColor = .systemOrange
-        case "wifi":
-            view.backgroundColor = .systemBlue
-        case "bolt.horizontal":
-            view.backgroundColor = .systemBlue
-        case "antenna.radiowaves.left.and.right":
-            view.backgroundColor = .systemGreen
-        case "personalhotspot":
-            view.backgroundColor = .systemGreen
-        case "bell.badge.fill":
-            view.backgroundColor = .systemPink
-        case "speaker.wave.3.fill":
-            view.backgroundColor = .systemRed
-        case "moon.fill":
-            view.backgroundColor = .systemPurple
-        case "hourglass":
-            view.backgroundColor = .systemPurple
-        case "gear":
-            view.backgroundColor = .systemGray2
-        case "switch.2":
-            view.backgroundColor = .systemGray2
-        case "textformat.size":
-            view.backgroundColor = .systemBlue
-        case "figure.wave.circle":
-            view.backgroundColor = .systemBlue
-        case "soccerball.circle.fill.inverse":
-            view.backgroundColor = .systemCyan
-        case "faceid":
-            view.backgroundColor = .systemGreen
-        case "sos":
-            view.backgroundColor = .systemRed
-        case "battery.75":
-            view.backgroundColor = .systemGreen
-        case "hand.raised":
-            view.backgroundColor = .systemBlue
-        default: break
-        }
+}
+
+// MARK: - Pirivate methods
+
+private func changeColorBackgroundIcon() {
+    switch cells?.icon {
+    case "airplane":
+        view.backgroundColor = .systemOrange
+    case "wifi":
+        view.backgroundColor = .systemBlue
+    case "bolt.horizontal":
+        view.backgroundColor = .systemBlue
+    case "antenna.radiowaves.left.and.right":
+        view.backgroundColor = .systemGreen
+    case "personalhotspot":
+        view.backgroundColor = .systemGreen
+    case "bell.badge.fill":
+        view.backgroundColor = .systemPink
+    case "speaker.wave.3.fill":
+        view.backgroundColor = .systemRed
+    case "moon.fill":
+        view.backgroundColor = .systemPurple
+    case "hourglass":
+        view.backgroundColor = .systemPurple
+    case "gear":
+        view.backgroundColor = .systemGray2
+    case "switch.2":
+        view.backgroundColor = .systemGray2
+    case "textformat.size":
+        view.backgroundColor = .systemBlue
+    case "figure.wave.circle":
+        view.backgroundColor = .systemBlue
+    case "soccerball.circle.fill.inverse":
+        view.backgroundColor = .systemCyan
+    case "faceid":
+        view.backgroundColor = .systemGreen
+    case "sos":
+        view.backgroundColor = .systemRed
+    case "battery.75":
+        view.backgroundColor = .systemGreen
+    case "hand.raised":
+        view.backgroundColor = .systemBlue
+    default: break
     }
 }

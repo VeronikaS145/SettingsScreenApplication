@@ -11,12 +11,12 @@ class UserTableViewCell: UITableViewCell {
 
     static let identifier = "UserTableViewCell"
     
-    var cells: Cell? {
-        didSet {
-            icon.image = UIImage(named: cells?.icon ?? "")
-            titleLabel.text = cells?.title ?? ""
-            subtitleLabel.text = cells?.subtitle ?? ""
-        }
+    // MARK: - Configuration
+    
+    func configureView(with model: Cell) {
+        icon.image = UIImage(named: model.icon)
+        titleLabel.text = model.title
+        subtitleLabel.text = model.subtitle
     }
     
     // MARK: - UI Elements
@@ -50,14 +50,20 @@ class UserTableViewCell: UITableViewCell {
     
     // MARK: - Init
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+     init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        backgroundColor = .white
         setupHierarchy()
         setupLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Setups

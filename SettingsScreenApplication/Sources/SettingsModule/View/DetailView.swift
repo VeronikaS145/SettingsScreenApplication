@@ -7,7 +7,17 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailView: UIView {
+    
+    // MARK: - Configuration
+    
+    private var models = [[Cell]]()
+    
+    func configureDetailView(with models: [[Cell]]) {
+        self.models = models
+        detailTitle.text = cells?.title
+        detailImage.image = UIImage(named: cells?.icon)
+    }
     
     // MARK: - UI Elements
     
@@ -34,9 +44,20 @@ class DetailViewController: UIViewController {
         return label
     }()
     
-    // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: - Init
+    
+    init() {
+        super.init(frame: .zero)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        backgroundColor = .white
         setupView()
         setupHierarchy()
         setupLayout()
@@ -44,24 +65,20 @@ class DetailViewController: UIViewController {
     
     // MARK: - Setups
     private func setupView() {
-        view.backgroundColor  = .systemBackground
+        backgroundColor  = .systemBackground
     }
     
     private func setupHierarchy() {
-        view.addSubview(detailImage)
-        view.addSubview(detailTitle)
+        addSubview(detailImage)
+        addSubview(detailTitle)
     }
     
     private func setupLayout() {
-        detailImage.snp.makeConstraints { make in
-            make.centerY.equalTo(view)
-            make.centerX.equalTo(view)
-            make.width.height.equalTo(250)
-        }
-        
-        detailTitle.snp.makeConstraints { make in
-            make.top.equalTo(detailImage.snp.bottom).offset(16)
-            make.centerX.equalTo(view)
-        }
+        detailImage.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        detailImage.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        detailImage.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 250)
+
+        detailTitle.topAnchor.constraint(equalTo: detailImage.bottomAnchor, constant: 16)
+        detailTitle.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
 }

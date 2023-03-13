@@ -10,7 +10,7 @@ import Foundation
 final class CellModel {
     
     func createModels() -> [[Cell]] {
-        return [Cell(title: "Veronika Semenkova", subtitle: "AppleID, iCloud+, контент и покупки", icon: "user")],
+        return [[Cell(title: "Veronika Semenkova", subtitle: "AppleID, iCloud+, контент и покупки", icon: "user")],
         
         [Cell(title: "Авиарежим", icon: "airplane"),
          Cell(title: "Wi-Fi", subtitle: "Выкл.", icon: "wifi"),
@@ -31,6 +31,6 @@ final class CellModel {
          Cell(title: "Face ID и код-пароль", icon: "faceid"),
          Cell(title: "Экстренный вызов - SOS", icon: "sos"),
          Cell(title: "Аккумулятор", icon: "battery.75"),
-         Cell(title: "Конфиденциальность и безопасность", icon: "hand.raised")]
+         Cell(title: "Конфиденциальность и безопасность", icon: "hand.raised")]]
     }
 }
