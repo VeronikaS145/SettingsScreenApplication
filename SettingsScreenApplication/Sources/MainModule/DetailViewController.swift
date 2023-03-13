@@ -44,7 +44,7 @@ class DetailViewController: UIViewController {
     
     // MARK: - Setups
     private func setupView() {
-        view.backgroundColor  = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        view.backgroundColor  = .systemBackground
     }
     
     private func setupHierarchy() {
