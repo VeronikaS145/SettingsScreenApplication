@@ -1,21 +1,16 @@
 //
-//  Model.swift
+//  CellModel.swift
 //  SettingsScreenApplication
 //
-//  Created by Nika Semenkova on 01.02.2023.
+//  Created by Nika Semenkova on 13.03.2023.
 //
 
 import Foundation
 
-struct Cell: Hashable {
-    var title: String
-    var subtitle: String?
-    var icon: String
-}
-
-extension Cell {
-    static var cells: [[Cell]] = [
-        [Cell(title: "Veronika Semenkova", subtitle: "AppleID, iCloud+, контент и покупки", icon: "user")],
+final class CellModel {
+    
+    func createModels() -> [[Cell]] {
+        return [Cell(title: "Veronika Semenkova", subtitle: "AppleID, iCloud+, контент и покупки", icon: "user")],
         
         [Cell(title: "Авиарежим", icon: "airplane"),
          Cell(title: "Wi-Fi", subtitle: "Выкл.", icon: "wifi"),
@@ -37,6 +32,5 @@ extension Cell {
          Cell(title: "Экстренный вызов - SOS", icon: "sos"),
          Cell(title: "Аккумулятор", icon: "battery.75"),
          Cell(title: "Конфиденциальность и безопасность", icon: "hand.raised")]
-    ]
+    }
 }
-
