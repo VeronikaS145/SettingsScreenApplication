@@ -82,21 +82,17 @@ extension MainView: UITableViewDataSource {
         switch models[indexPath.section] {
         case models[0]:
             let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as? UserTableViewCell
-            cell.
-            cell?.cells = models[indexPath.section][indexPath.row]
+            cell?.configure(with: models[indexPath.section][indexPath.row])
             return cell ?? UITableViewCell()
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: DefaultTableViewCell.identifier, for: indexPath) as? DefaultTableViewCell
-            cell?.cells = models[indexPath.section][indexPath.row]
+            cell?.configure(with: models[indexPath.section][indexPath.row])
             
-            switch cell?.cells?.icon {
-            case "airplane":
+            if indexPath.section == 2 && indexPath.row == 1 {
                 let switchView = UISwitch(frame: .zero)
                 switchView.setOn(false, animated: true)
                 cell?.accessoryView = switchView
-            default:
-                cell?.accessoryType = .disclosureIndicator
-            }
+            } else { cell?.accessoryType = .disclosureIndicator }
             
             return cell ?? UITableViewCell()
         }

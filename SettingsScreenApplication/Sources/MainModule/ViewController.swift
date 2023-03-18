@@ -9,7 +9,6 @@ import UIKit
 
     protocol ViewControllerDelegate: AnyObject {}
 
-    // Подписать Контроллер под протокол делегата
     class ViewController: UIViewController, ViewControllerDelegate {
         
         var model: CellModel?
@@ -25,7 +24,7 @@ import UIKit
             super.viewDidLoad()
             title = "Настройки"
             navigationController?.navigationBar.prefersLargeTitles = true
-            navigationItem.searchController = searchBar
+//            navigationItem.searchController = searchBar
             view.backgroundColor  = .systemGray4
             
             view = MainView()
