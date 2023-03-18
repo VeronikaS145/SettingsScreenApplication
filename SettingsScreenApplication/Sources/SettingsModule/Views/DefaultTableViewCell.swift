@@ -13,11 +13,10 @@ class DefaultTableViewCell: UITableViewCell {
     static let identifier = "DefaultTableViewCell"
     
     func configure(with model: Cell) {
-        icon.image = UIImage(named: model.icon)
+        icon.image = UIImage(systemName: model.icon)
         titleLabel.text = model.title
         subtitleLabel.text = model.subtitle
-        
-        
+        changeColorBackgroundIcon(model: model)
     }
     
     // MARK: - UI Elements
@@ -43,7 +42,7 @@ class DefaultTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.tintColor = .black
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -53,7 +52,7 @@ class DefaultTableViewCell: UITableViewCell {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.textColor = .systemGray
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

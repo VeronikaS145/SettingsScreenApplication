@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SnapKit
 
 class UserTableViewCell: UITableViewCell {
-
+    
     static let identifier = "UserTableViewCell"
     
     func configure(with model: Cell) {
@@ -58,6 +59,12 @@ class UserTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implement")
     }
     
+    // MARK: - Override methods
+    
+    override func prepareForReuse() {
+        accessoryView = nil
+    }
+    
     // MARK: - Setups
     
     private func setupHierarchy() {
@@ -84,10 +91,5 @@ class UserTableViewCell: UITableViewCell {
             make.bottom.equalTo(self).offset(-3)
             make.left.equalTo(icon.snp.right).offset(15)
         }
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        accessoryView = nil
     }
 }

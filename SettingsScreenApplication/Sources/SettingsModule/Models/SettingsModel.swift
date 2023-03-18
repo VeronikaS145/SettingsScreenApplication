@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CellModel {
+class SettingsModel {
     
     var createModel: [[Cell]] = [
         [Cell(title: "Veronika Semenkova", subtitle: "AppleID, iCloud+, контент и покупки", icon: "user")],
