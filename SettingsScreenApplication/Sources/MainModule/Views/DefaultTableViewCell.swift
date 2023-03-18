@@ -12,13 +12,12 @@ class DefaultTableViewCell: UITableViewCell {
     
     static let identifier = "DefaultTableViewCell"
     
-    var cells: Cell? {
-        didSet {
-            changeColorBackgroundIcon()
-            icon.image = UIImage(systemName: cells?.icon ?? "")
-            titleLabel.text = cells?.title ?? ""
-            subtitleLabel.text = cells?.subtitle ?? ""
-        }
+    func configure(with model: Cell) {
+        icon.image = UIImage(named: model.icon)
+        titleLabel.text = model.title
+        subtitleLabel.text = model.subtitle
+        
+        
     }
     
     // MARK: - UI Elements
@@ -65,6 +64,7 @@ class DefaultTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupHierarchy()
         setupLayout()
+        prepareForReuse()
     }
     
     required init?(coder: NSCoder) {
@@ -112,8 +112,8 @@ class DefaultTableViewCell: UITableViewCell {
     
     // MARK: - Pirivate methods
     
-    private func changeColorBackgroundIcon() {
-        switch cells?.icon {
+    private func changeColorBackgroundIcon(model: Cell) {
+        switch model.icon {
         case "airplane":
             view.backgroundColor = .systemOrange
         case "wifi":

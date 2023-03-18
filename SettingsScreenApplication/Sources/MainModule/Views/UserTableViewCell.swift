@@ -11,12 +11,10 @@ class UserTableViewCell: UITableViewCell {
 
     static let identifier = "UserTableViewCell"
     
-    var cells: Cell? {
-        didSet {
-            icon.image = UIImage(named: cells?.icon ?? "")
-            titleLabel.text = cells?.title ?? ""
-            subtitleLabel.text = cells?.subtitle ?? ""
-        }
+    func configure(with model: Cell) {
+        icon.image = UIImage(named: model.icon)
+        titleLabel.text = model.title
+        subtitleLabel.text = model.subtitle
     }
     
     // MARK: - UI Elements
@@ -57,7 +55,7 @@ class UserTableViewCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implement")
     }
     
     // MARK: - Setups
@@ -86,5 +84,10 @@ class UserTableViewCell: UITableViewCell {
             make.bottom.equalTo(self).offset(-3)
             make.left.equalTo(icon.snp.right).offset(15)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        accessoryView = nil
     }
 }

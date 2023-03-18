@@ -10,13 +10,14 @@
 		4B38EBF5298B4B270023BAB6 /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B38EBF4298B4B270023BAB6 /* DefaultTableViewCell.swift */; };
 		4B7129092989DD9200CEC750 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7129082989DD9200CEC750 /* AppDelegate.swift */; };
 		4B71290B2989DD9200CEC750 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B71290A2989DD9200CEC750 /* SceneDelegate.swift */; };
-		4B71290D2989DD9200CEC750 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B71290C2989DD9200CEC750 /* ViewController.swift */; };
+		4B71290D2989DD9200CEC750 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B71290C2989DD9200CEC750 /* MainView.swift */; };
 		4B7129122989DD9300CEC750 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B7129112989DD9300CEC750 /* Assets.xcassets */; };
 		4B7129152989DD9300CEC750 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B7129132989DD9300CEC750 /* LaunchScreen.storyboard */; };
 		4B71292E2989F22800CEC750 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B71292D2989F22800CEC750 /* Model.swift */; };
 		4B712933298A324900CEC750 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4B712932298A324900CEC750 /* SnapKit */; };
 		4B8D66E929956212002CF758 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D66E829956212002CF758 /* UserTableViewCell.swift */; };
-		4BF3C63E298CB7AD00697E7D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF3C63D298CB7AD00697E7D /* DetailViewController.swift */; };
+		4BAEB7A429C5A6E80036468B /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAEB7A329C5A6E80036468B /* CellModel.swift */; };
+		4BAEB7A629C5A7890036468B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAEB7A529C5A7890036468B /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,13 +25,14 @@
 		4B7129052989DD9200CEC750 /* SettingsScreenApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SettingsScreenApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B7129082989DD9200CEC750 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B71290A2989DD9200CEC750 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4B71290C2989DD9200CEC750 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4B71290C2989DD9200CEC750 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4B7129112989DD9300CEC750 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B7129142989DD9300CEC750 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B7129162989DD9300CEC750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B71292D2989F22800CEC750 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4B8D66E829956212002CF758 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		4BF3C63D298CB7AD00697E7D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4BAEB7A329C5A6E80036468B /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		4BAEB7A529C5A7890036468B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,11 +50,9 @@
 		4B38EBF3298B4AD60023BAB6 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
-				4B71292D2989F22800CEC750 /* Model.swift */,
-				4B71290C2989DD9200CEC750 /* ViewController.swift */,
-				4BF3C63D298CB7AD00697E7D /* DetailViewController.swift */,
-				4B38EBF4298B4B270023BAB6 /* DefaultTableViewCell.swift */,
-				4B8D66E829956212002CF758 /* UserTableViewCell.swift */,
+				4BAEB7A729C5AAFF0036468B /* Views */,
+				4BAEB7A029C5A68C0036468B /* Models */,
+				4BAEB7A529C5A7890036468B /* ViewController.swift */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -108,6 +108,25 @@
 				4B71290A2989DD9200CEC750 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		4BAEB7A029C5A68C0036468B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4B71292D2989F22800CEC750 /* Model.swift */,
+				4BAEB7A329C5A6E80036468B /* CellModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4BAEB7A729C5AAFF0036468B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4B71290C2989DD9200CEC750 /* MainView.swift */,
+				4B8D66E829956212002CF758 /* UserTableViewCell.swift */,
+				4B38EBF4298B4B270023BAB6 /* DefaultTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,9 +206,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B38EBF5298B4B270023BAB6 /* DefaultTableViewCell.swift in Sources */,
-				4B71290D2989DD9200CEC750 /* ViewController.swift in Sources */,
+				4B71290D2989DD9200CEC750 /* MainView.swift in Sources */,
 				4B7129092989DD9200CEC750 /* AppDelegate.swift in Sources */,
-				4BF3C63E298CB7AD00697E7D /* DetailViewController.swift in Sources */,
+				4BAEB7A629C5A7890036468B /* ViewController.swift in Sources */,
+				4BAEB7A429C5A6E80036468B /* CellModel.swift in Sources */,
 				4B8D66E929956212002CF758 /* UserTableViewCell.swift in Sources */,
 				4B71290B2989DD9200CEC750 /* SceneDelegate.swift in Sources */,
 				4B71292E2989F22800CEC750 /* Model.swift in Sources */,
