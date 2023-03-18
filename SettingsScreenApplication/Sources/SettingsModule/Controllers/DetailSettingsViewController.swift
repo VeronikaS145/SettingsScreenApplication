@@ -1,15 +1,13 @@
 //
-//  DetailViewController.swift
+//  DetailSettingsViewController.swift
 //  SettingsScreenApplication
 //
-//  Created by Nika Semenkova on 03.02.2023.
+//  Created by Nika Semenkova on 18.03.2023.
 //
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    
-    // MARK: - UI Elements
+class DetailSettingsViewController: UIViewController {
     
     var cells: Cell? {
         didSet {
@@ -17,6 +15,8 @@ class DetailViewController: UIViewController {
             detailTitle.text = cells?.title ?? ""
         }
     }
+    
+    // MARK: - UI Elements
     
     private lazy var detailImage: UIImageView = {
         let imageView = UIImageView()
@@ -35,6 +35,7 @@ class DetailViewController: UIViewController {
     }()
     
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -43,6 +44,7 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: - Setups
+    
     private func setupView() {
         view.backgroundColor  = .systemBackground
     }

@@ -5,15 +5,20 @@
 //  Created by Nika Semenkova on 01.02.2023.
 //
 import UIKit
-import SnapKit
 
-class ViewController: UIViewController {
+class SettingsView: UIView {
     
-    private var model: [[Cell]]?
+    weak var delegate: SettingsViewControllerDelegate?
+    
+    func configureView(with models: [[Cell]]) {
+        self.models = models
+    }
+    
+    private var models = [[Cell]]()
     
     // MARK: - UI Elements
     
-    private lazy var searchBar: UISearchController = {
+    lazy var searchBar: UISearchController = {
         let search = UISearchController()
         search.searchBar.placeholder = "Поиск"
         search.obscuresBackgroundDuringPresentation = true
@@ -32,61 +37,59 @@ class ViewController: UIViewController {
         return tableView
     }()
     
-    // MARK: - Lifecycle
+    //MARK: - Lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
+    init() {
+        super.init(frame: .zero)
         setupHierarchy()
         setupLayout()
     }
     
-    // MARK: - Setups
-    private func setupView() {
-        title = "Настройки"
-        view.backgroundColor  = #colorLiteral(red: 0.9499780536, green: 0.9505755305, blue: 0.9688754678, alpha: 1)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.searchController = searchBar
-        model = Cell.cells
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
+    // MARK: - Setups
+    
     private func setupHierarchy() {
-        view.addSubview(tableView)
+        addSubview(tableView)
     }
     
     private func setupLayout() {
-        tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.bottom.left.right.equalTo(view)
-        }
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor)
+        ])
     }
 }
 
 // MARK: - Extensions
-extension ViewController: UITableViewDataSource {
+extension SettingsView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if model?[indexPath.section] == model?[0] { return 80 } else { return 40 }
+        if models[indexPath.section] == models[0] { return 80 } else { return 40 }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        model?.count ?? 0
+        models.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        model?[section].count ?? 0
+        models[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch model?[indexPath.section] {
-        case model?[0]:
+        switch models[indexPath.section] {
+        case models[0]:
             let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as? UserTableViewCell
-            cell?.cells = model?[indexPath.section][indexPath.row]
+            cell?.configure(with: models[indexPath.section][indexPath.row])
             return cell ?? UITableViewCell()
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: DefaultTableViewCell.identifier, for: indexPath) as? DefaultTableViewCell
-            cell?.cells = model?[indexPath.section][indexPath.row]
+            cell?.configure(with: models[indexPath.section][indexPath.row])
             
-            switch cell?.cells?.icon {
+            switch models[indexPath.section][indexPath.row].icon {
             case "airplane":
                 let switchView = UISwitch(frame: .zero)
                 switchView.setOn(false, animated: true)
@@ -100,11 +103,9 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension SettingsView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let detailView = DetailViewController()
-        detailView.cells = model?[indexPath.section][indexPath.row]
-        navigationController?.pushViewController(detailView, animated: true)
+        delegate?.showDetails(cell: models[indexPath.section][indexPath.row])
     }
 }
