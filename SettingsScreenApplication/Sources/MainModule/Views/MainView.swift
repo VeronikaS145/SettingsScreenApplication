@@ -9,7 +9,7 @@ import SnapKit
 
 class MainView: UIView {
             
-    weak var delegate: TableControllerDelegate?
+    weak var delegate: ViewControllerDelegate?
     
     func configureView(with models: [[Cell]]) {
         self.models = models
@@ -51,12 +51,6 @@ class MainView: UIView {
     }
     
     // MARK: - Setups
-    private func setupView() {
-        title = "Настройки"
-        backgroundColor  = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.searchController = searchBar
-    }
     
     private func setupHierarchy() {
         addSubview(tableView)
@@ -88,6 +82,7 @@ extension MainView: UITableViewDataSource {
         switch models[indexPath.section] {
         case models[0]:
             let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as? UserTableViewCell
+            cell.
             cell?.cells = models[indexPath.section][indexPath.row]
             return cell ?? UITableViewCell()
         default:

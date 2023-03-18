@@ -23,8 +23,9 @@ import UIKit
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            title = "Setings"
+            title = "Настройки"
             navigationController?.navigationBar.prefersLargeTitles = true
+            navigationItem.searchController = searchBar
             view.backgroundColor  = .systemGray4
             
             view = MainView()
